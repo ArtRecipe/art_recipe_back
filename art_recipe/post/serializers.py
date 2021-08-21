@@ -17,6 +17,15 @@ class PostSerializer(serializers.ModelSerializer):
         fields=["writer", "title", "created_at", "updated_at", "thumbnail", "material", "color", "desc"]
         read_only_fields=["id", "created_at", "updated_at"]
 
+class PostCreateSerializer(serializers.ModelSerializer):
+    writer = serializers.HiddenField(default=serializers.CurrentUserDefault())
+
+    class Meta:
+        model = Post
+        fields = ["writer", "title", "created_at", "updated_at", "thumbnail", "material", "color", "desc"]
+        read_only_fields = ["id", "created_at", "updated_at"]
+
+
 class PostImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = PostImage
