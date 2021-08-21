@@ -1,0 +1,6 @@
+__pycache__
+.env
+db.sqlite3
+# */migrations/*
+!*/migrations/__init__.py
+art_recipe/media/
