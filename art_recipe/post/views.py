@@ -12,22 +12,28 @@ from .permissions import (
     IsPostWriter,
 )
 
+
 class MaterialViewSet(ModelViewSet):
-    queryset=Material.objects.all()
-    serializer_class=MaterialSerializer
+    queryset = Material.objects.all()
+    serializer_class = MaterialSerializer
+
 
 class PostViewSet(ModelViewSet):
-    queryset=Post.objects.all()
-    serializer_class=PostSerializer
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
     serializer_classes = {
         "create": PostCreateSerializer,
     }
-    permission_classes ={
-        "list":[],
-        "retrieve":[],
-        "create":[],
-        "update":[IsPostWriter],
-        "destroy":[IsPostWriter],
+    permission_classes = {
+        "list": [],
+        "retrieve": [],
+        "create": [],
+        "update": [IsPostWriter],
+        "destroy": [IsPostWriter],
+    }
+    template_names = {
+        "list": ['post_list.html'],
+        "retrieve": ['post_detail.html'],
     }
 
     def get_permissions(self):
@@ -35,6 +41,7 @@ class PostViewSet(ModelViewSet):
 
     def get_serializer_class(self):
         return self.serializer_classes.get(self.action, self.serializer_class)
+
 
 class PostImageView(CreateAPIView):
     queryset = PostImage.objects.all()

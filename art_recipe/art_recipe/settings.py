@@ -11,7 +11,8 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com', '0.0.0.0', '115.85.183.95']
+ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com',
+                 '0.0.0.0', '115.85.183.95']
 
 
 # Application definition
@@ -44,7 +45,7 @@ REST_FRAMEWORK = {
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware', # 추가
+    'django.middleware.common.CommonMiddleware',  # 추가
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -158,7 +159,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 CORS_ORIGIN_ALLOW_ALL = False
 
 CORS_ORIGIN_WHITELIST = (
-       'http://localhost:3000',    #React 도메인
+    'http://localhost:3000',  # React 도메인
+    'https://6121dd6eeef4b1e3be9c2ec8--nifty-pike-95ddf7.netlify.app'
 )
 
 CORS_ALLOW_CREDENTIALS = True
