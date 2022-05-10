@@ -9,11 +9,12 @@ from .serializers import (
     UserSerializer,
     ProfileSerializer,
 )
+from accounts.permissions import IsMyProfile
 
-class ProfileViewSet(GenericViewSet, mixins.UpdateModelMixin, mixins.CreateModelMixin):
+class ProfileViewSet(GenericViewSet, mixins.CreateModelMixin, mixins.UpdateModelMixin):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, IsMyProfile]
 
     def get_queryset(self):
         return self.queryset.filter(user=self.request.user)
