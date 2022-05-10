@@ -21,5 +21,8 @@ class UserSerializer(serializers.ModelSerializer):
             "username",
             "last_login",
             "date_joined",
+            "email",
         ]
+        
     profile = ProfileSerializer()
+        
