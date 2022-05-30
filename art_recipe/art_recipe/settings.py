@@ -171,7 +171,7 @@ AUTHENTICATION_BACKENDS = (
     "allauth.account.auth_backends.AuthenticationBackend",
 )
 SITE_ID = 1
-LOGIN_REDIRECT_URL = "/"
+LOGIN_REDIRECT_URL = "http://localhost:3000/"
 
 # cors
 CORS_ORIGIN_ALLOW_ALL = False
